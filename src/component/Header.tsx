@@ -40,7 +40,7 @@ const DarkBtn = styled.button`
   border-radius: 15px;
   background-color: transparent;
   box-shadow: ${(props)=>`3px 3px 3px 1px `+props.theme.shadow};
-  :hover{
+  &:hover{
     background-color: ${(props)=>props.theme.btnColor};
     transition: all 0.3s;
   }
