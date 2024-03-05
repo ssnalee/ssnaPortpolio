@@ -83,7 +83,7 @@ a {
 
 const App = () => {
   const isDark = useRecoilValue(isDarkAtom);
-  const refArray = useRef<null[] | HTMLDivElement[]>([]);
+  // const refArray = useRef<null[] | HTMLDivElement[]>([]);
   return (
     <>
       <ThemeProvider theme ={isDark ? lightTheme : darkTheme}>
@@ -92,8 +92,7 @@ const App = () => {
       <About ref={el => (refArray.current[1] = el)}/>
       <Skill ref={el => (refArray.current[2] = el)}/>
       <Project ref={el => (refArray.current[3] = el)}/> */}
-   
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <GlovalStyle />
           <Header />
           <Routes>
