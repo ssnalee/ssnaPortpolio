@@ -56,6 +56,7 @@ const ListBar = styled(motion.span)<{backgroundColor :string}>`
     margin: 0 auto;
     background-color: ${(props)=>props.backgroundColor};
 `;
+
 const DETAIL_NAV = [
   { idx: 0, name: 'INTRO' },
   { idx: 1, name: 'ABOUT' },
@@ -67,7 +68,7 @@ interface HeaderProps {
   refNames?: null[] | HTMLDivElement[];
 }
 
-// const Header = ({ refNames }: HeaderProps) =>{
+// const Header = ({ refNames }: HeaderProps) =>{ 
   function Header(){
   const homeMatch = useMatch("/");
   const aboutMatch = useMatch("/about");
