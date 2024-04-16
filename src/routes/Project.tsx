@@ -133,7 +133,7 @@ function Project(){
         overview : "현재 진행중이며 리뷰 작성 및 삭제, 로그인, 로그아웃을 로컬스토리지로 구현 후, sql로 데이터를 관리할 수 있도록 개발할 예정입니다.",
         skills : "typescript, react, styled-component",
         people : 1,
-        adress : "https://ssnalee.github.io/renual_meriott/",
+        adress : "https://ssnalee.github.io/hotelMeriott/",
         img : "re.PNG",
     }
   ];
