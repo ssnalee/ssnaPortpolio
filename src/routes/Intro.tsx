@@ -23,9 +23,15 @@ const fadeOut = keyframes`
       opacity: 0;
     }
 `;
+const spinner = keyframes`
+  100% {
+    transform: rotate(1turn)
+  }
+`;
 const IntroWrap = styled.div`
   height: 100vh;
   width: 90%;
+  min-width: 1100px;
   max-width: 1200px;
   display: flex;
   flex-direction: row;
@@ -64,34 +70,23 @@ const CircleBox =styled.ul`
   align-items: center;
 `;
 const Circle = styled.li<{backgroundColor : string}>`
- width: 200px;
- height: 200px;
- background-color: ${(props)=>props.backgroundColor};
- border-radius: 50%;
- display: flex;
- align-items: center;
- justify-content: center;
- text-align: center;
- margin: 40px 20px 40px 0;
- font-size:35px;
- cursor: pointer;
- font-family: "Nanum Pen Script", cursive;
- box-shadow: ${(props)=>`6px 8px 6px -6px `+props.theme.shadow};
- &:hover{
-  transition : all 0.5s;
-  background-color: #e7ff34;
- }
-
- &.fade-in {
-    opacity: 1;
-    animation: ${fadeIn} ease-in-out 1s;
+  width: 200px;
+  height: 200px;
+  background-color: ${(props)=>props.backgroundColor};
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 40px 20px 40px 0;
+  font-size:35px;
+  cursor: pointer;
+  font-family: "Nanum Pen Script", cursive;
+  box-shadow: ${(props)=>`6px 8px 6px -6px `+props.theme.shadow};
+  &:hover{
+   transition : all 0.5s;
+   background-color: #e7ff34;
   }
-
-  &.fade-out {
-    opacity: 0;
-    animation: ${fadeOut} ease-in-out 1s;
-  }
-
 `;
 const LinkBtn = styled.button`
   background: linear-gradient(90deg, rgba(0,255,61,1) 0%, rgba(156,253,29,1) 30%, rgba(255,246,0,1) 100%);
@@ -109,6 +104,18 @@ const LinkBtn = styled.button`
     left:10px;
   }
 `;
+const Loader = styled.div`
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#1a79ff 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,#1a79ff);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation: ${spinner} 1s infinite linear;
+
+`;
+
 const circleVariants = {
     normal : {},
     hover : {
@@ -123,20 +130,25 @@ const circleVariants = {
 // const Intro = forwardRef(function Intro({...props}, ref: React.Ref<HTMLDivElement>){
 const Intro = ()=>{
     const [nm,setNm] = useState(['planned','Meticulous','Positive']);
-    const [isFade,setIsfade]= useState(false);
+    const [isLoading,setIsLoading]= useState(false);
     const changeNm = ( text: any, i : number) => {
         let copy = [...nm];
         copy[i] = text; 
         setNm(copy);
     }
-    // useEffect(()=>{
-    //  setNm(nm);
+    useEffect(()=>{
+      //setTimeout(()=>{
+        setIsLoading(true);
+      //},3000);
+ 
 
-    // },[nm,setNm])
+    },[])
 
   return(
     // <IntroWrap ref={ref} {...props}>
-    <IntroWrap>
+    <>
+      {isLoading ? 
+      <IntroWrap>
         <ContL>
           <img src={process.env.PUBLIC_URL+'/img/me.jpg'}/>
         </ContL> 
@@ -156,7 +168,6 @@ const Intro = ()=>{
               backgroundColor="#72beff" 
               onMouseOver={()=>{changeNm('계획적인',0)}} 
               onMouseOut={()=>{changeNm('planned',0)}}
-              className= {isFade ? 'fade-in': ''}
               > {nm[0]}
             </Circle>
             <Circle 
@@ -179,7 +190,9 @@ const Intro = ()=>{
         </ContR>
 
     </IntroWrap>
-
+    :  <IntroWrap><Loader></Loader></IntroWrap>}
+    </>
+    
   );
 };
 

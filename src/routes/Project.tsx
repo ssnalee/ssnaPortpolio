@@ -41,8 +41,8 @@ const ProList = styled(motion.div)<{bgImg :string; slide : number;}>`
   height: ${(props)=>props.bgImg.slice(-7) == 'kim.jpg' ? '600px' : '350px'};
   margin: 15px;
   position: relative;
-  transform: translateX(${(props)=>props.slide}px);
-  transition: 0.5s all ease-in;
+  /* transform: translateX(${(props)=>props.slide}px);
+  transition: 0.3s all linear; */
   box-shadow: ${(props)=>`0px 8px 6px -6px `+props.theme.shadow};
 `;
 const ProListTitle = styled.h4`
@@ -174,7 +174,12 @@ function Project(){
               layoutId={list.id}
               bgImg={process.env.PUBLIC_URL+'/img/site/'+ list.img} 
               onClick={e=>openPopup(e,idx)}
+          
               animate={{x :slidePx}}
+              transition={{
+                duration: 0.7,
+                ease: [0, 0.2, 0.2, 0.2]
+              }}
               // whileHover={{scale:1.2, zIndex:5}}
           >
 
