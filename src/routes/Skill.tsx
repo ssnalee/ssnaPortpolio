@@ -5,28 +5,41 @@ const SkillWrap = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
-  padding-top:150px;
+  justify-content: center;
+  gap: 20px;
+  padding-top:200px;
+  >div{
+    width: 45%;
+  }
 `;
 const SkillBoxs = styled.div``;
 const SkillBox = styled.div`
-  width: 450px;
   background-color: #fff;
   border-radius: 20px;
-  padding:20px 20px 0;
+  padding:20px;
   margin-bottom: 20px;
-  box-shadow: ${(props)=>`0px 8px 6px -6px `+props.theme.shadow};
+  box-shadow: ${(props) => `0px 8px 6px -6px ` + props.theme.shadow};
   overflow: hidden;
 `;
-const SkillLists = styled.ul`
-  margin-top: 30px;`;
-const SkillList =styled.li`
+const SkillDiv = styled.div` 
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-bottom: 5px;
-  height: 80px;
+  margin-bottom: 20px;
+  gap: 30px;
+  >div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  p{
+    background-color: #29292977;
+    color:#fff;
+    padding: 5px 10px;
+    border-radius: 30px;
+  }
 `;
 const Stitle = styled.h3`
   font-size: 30px;
@@ -34,100 +47,165 @@ const Stitle = styled.h3`
   font-family: "Orbit", sans-serif;
   color:#000;
   position: relative;
-  display: inline;
-  &::before{
-    z-index: 1;
-    position: absolute;
-    bottom:-5px;
-    right: 0;
-    content: "";
-    width: 80%;
-    height: 5px;
-    background: linear-gradient(90deg, rgba(0,255,216,1) 0%, rgba(29,246,253,1) 28%, rgba(6,0,255,1) 100%);
-  }
+  width: fit-content;
+  margin-bottom: 50px;
 `;
 const Simg = styled.img`
-  height: 100%;
-  &.w_3{
-    height: 70px;
-    margin: 5px;
-  }
-  &.w_2{
-    height: 70px;
-    margin: 5px;
-  }
-  &.s_0{
-    scale:0.5;
-  }
-  &.s_1{
-    scale:1.5;
-  }
+  height: 80px;
   &:hover{
-    scale:1.5;
+    scale:1.2;
     transition: all 0.5s;
-  }
-  &.s_0:hover{
-    scale:0.8;
-  }
-  &.s_1:hover{
-    scale:1.8;
   }
 `;
 
-function Skill(){
-  return(
-    <SkillWrap >
-      <SkillBox>
-        <Stitle>Front End</Stitle>
-        <SkillLists>
-          <SkillList>
-            <Simg className="w_3" src={process.env.PUBLIC_URL+'/img/html5.png'}/>
-            <Simg className="w_3" src={process.env.PUBLIC_URL+'/img/css.png'}/>
-            <Simg className="w_3" src={process.env.PUBLIC_URL+'/img/js.png'}/>
-          </SkillList>
-          <SkillList>
-            <Simg className="w_2" src={process.env.PUBLIC_URL+'/img/ts.png'}/>
-            <Simg className="w_2" src={process.env.PUBLIC_URL+'/img/styled_component.png'}/>
-          </SkillList>
-          <SkillList>
-            <Simg src={process.env.PUBLIC_URL+'/img/jquery.png'}/>
-          </SkillList>
-          <SkillList>
-            <Simg src={process.env.PUBLIC_URL+'/img/react.png'}/>
-          </SkillList>
-          <SkillList>
-            <Simg className="s_1" src={process.env.PUBLIC_URL+'/img/react_query.png'}/>
-          </SkillList>
-          <SkillList>
-            <Simg src={process.env.PUBLIC_URL+'/img/recoil.png'}/>
-          </SkillList>
-        </SkillLists>
-      </SkillBox>
+function Skill() {
+  const SKILL_IMG_URL = `${process.env.PUBLIC_URL}/img/skills`
+  const skills = {
+    basics: [
+      {
+        key: 'html',
+        label: 'HTML5',
+      },
+      {
+        key: 'css',
+        label: 'CSS',
+      },
+      {
+        key: 'js',
+        label: 'Javascript',
+      },
+      {
+        key: 'ts',
+        label: 'Typescript',
+      },
+    ],
+    ui: [
+      {
+        key: 'styled-component',
+        label: 'Styled Compnent',
+      },
+      {
+        key: 'jquery',
+        label: 'jQuery',
+      },
+      {
+        key: 'scss',
+        label: 'SCSS',
+      },
+    ],
+    react_framework: [
+      {
+        key: 'react',
+        label: 'React',
+      },
+      {
+        key: 'react-query',
+        label: 'React Query',
+      },
+      {
+        key: 'recoil',
+        label: 'Recoil',
+      },
+      {
+        key: 'redux',
+        label: 'Redux',
+      },
+    ],
+    vue_framework: [
+      {
+        key: 'vue',
+        label: 'Vue',
+      },
+      {
+        key: 'vuex',
+        label: 'Vuex',
+      },
+      {
+        key: 'pinia',
+        label: 'Pinia',
+      },
+    ],
+    backend: [
+      {
+        key: 'express',
+        label: 'Express',
+      },
+      {
+        key: 'mongodb',
+        label: 'MongoDB',
+      },
+      {
+        key: 'postgredb',
+        label: 'PostgreDB',
+      },
+    ],
+    tool: [
+      {
+        key: 'github',
+        label: 'Github',
+      },
+      {
+        key: 'figma',
+        label: 'Figma',
+      },
+      {
+        key: 'slack',
+        label: 'Slack',
+      },
+      {
+        key: 'flow',
+        label: 'Flow',
+      },
+    ]
+  }
+
+  const SkillItems = ({ items }: { items: { key: string; label: string }[] }) => (
+    <>
+      {items.map(item => (
+        <div key={item.key}>
+          <Simg src={`${SKILL_IMG_URL}/${item.key}.png`} />
+          <p>{item.label}</p>
+        </div>
+      ))}
+    </>
+  );
+
+  return (
+    <SkillWrap>
       <SkillBoxs>
         <SkillBox>
-          <Stitle>Source Control</Stitle>
-          <SkillLists>
-            <SkillList>
-              <Simg className="s_1" src={process.env.PUBLIC_URL+'/img/gitlab.png'}/>
-            </SkillList>
-            <SkillList>
-              <Simg src={process.env.PUBLIC_URL+'/img/github.png'}/>
-            </SkillList>
-          </SkillLists>
+          <Stitle>프론트엔드 & 스타일링</Stitle>
+          <SkillDiv>
+            <SkillItems items={skills.basics} />
+          </SkillDiv>
+          <SkillDiv>
+            <SkillItems items={skills.ui} />
+          </SkillDiv>
         </SkillBox>
         <SkillBox>
-          <Stitle>Communication</Stitle>
-          <SkillLists>
-            <SkillList>
-              <Simg src={process.env.PUBLIC_URL+'/img/slack.png'}/>
-            </SkillList>
-            <SkillList>
-              <Simg className="s_0" src={process.env.PUBLIC_URL+'/img/flow.png'}/>
-            </SkillList>
-            <SkillList>
-              <Simg src={process.env.PUBLIC_URL+'/img/zeplin.png'}/>
-            </SkillList>
-          </SkillLists>
+          <Stitle>백엔드 & DB</Stitle>
+          <SkillDiv>
+            <SkillItems items={skills.backend} />
+          </SkillDiv>
+        </SkillBox>
+      </SkillBoxs>
+
+      <SkillBoxs>
+        <SkillBox>
+          <Stitle>프레임워크 & 상태관리</Stitle>
+          <SkillDiv>
+            <SkillItems items={skills.react_framework} />
+          </SkillDiv>
+          <SkillDiv>
+            <SkillItems items={skills.vue_framework} />
+          </SkillDiv>
+        </SkillBox>
+
+        <SkillBox>
+          <Stitle>협업 도구</Stitle>
+          <SkillDiv>
+            <SkillItems items={skills.tool} />
+          </SkillDiv>
         </SkillBox>
       </SkillBoxs>
     </SkillWrap>
