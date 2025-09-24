@@ -92,7 +92,8 @@ const App = () => {
       <About ref={el => (refArray.current[1] = el)}/>
       <Skill ref={el => (refArray.current[2] = el)}/>
       <Project ref={el => (refArray.current[3] = el)}/> */}
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        {/* <BrowserRouter basename={process.env.PUBLIC_URL}> */}
+        <BrowserRouter>
           <GlovalStyle />
           <Header />
           <Routes>
