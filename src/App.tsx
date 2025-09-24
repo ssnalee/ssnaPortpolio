@@ -76,9 +76,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 `;
 
 const App = () => {
