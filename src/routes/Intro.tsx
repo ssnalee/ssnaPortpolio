@@ -31,7 +31,6 @@ const spinner = keyframes`
 const IntroWrap = styled.div`
   height: 100vh;
   width: 90%;
-  min-width: 1100px;
   max-width: 1200px;
   display: flex;
   flex-direction: row;
@@ -39,9 +38,10 @@ const IntroWrap = styled.div`
   justify-content: center;
   margin: 0 auto;
   animation: 0.7s ease-in-out ${fadeIn};
-`;
-const Cont = styled.div`
-
+  @media screen and (max-width:1200px){
+    width: 100%;
+    /* margin-top: 100px; */
+  }
 `;
 const ContL = styled.div`
   width: 40%;
@@ -51,6 +51,9 @@ const ContL = styled.div`
     object-fit: cover;
     border-radius: 30px;
   }
+  @media screen and (max-width:1200px){
+    display: none;
+  }
 `;
 const ContR = styled.div` 
   width: 60%;
@@ -58,27 +61,35 @@ const ContR = styled.div`
   font-weight: 400;
   padding: 40px;
   font-size: 35px;
-    letter-spacing: 0.5px;
-    line-height: 2em;
-    white-space: pre-wrap;
-  p{
-
+  letter-spacing: 0.5px;
+  line-height: 2em;
+  white-space: pre-wrap;
+  @media screen and (max-width:1200px){
+    width: 100%;
+    padding:  20px;
   }
 `;
 const CircleBox =styled.ul`
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  @media screen and (max-width:768px){
+    gap: 5px;
+  }
 `;
 const Circle = styled.li<{backgroundColor : string}>`
-  width: 200px;
-  height: 200px;
+  width: 33%;
+  aspect-ratio: 1/1;
+  max-width: 200px;
+  max-height: 200px;
   background-color: ${(props)=>props.backgroundColor};
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 40px 20px 40px 0;
   font-size:35px;
   cursor: pointer;
   font-family: "Nanum Pen Script", cursive;
@@ -86,6 +97,13 @@ const Circle = styled.li<{backgroundColor : string}>`
   &:hover{
    transition : all 0.5s;
    background-color: #e7ff34;
+  }
+  @media screen and (max-width:1200px){
+
+    margin: 20px 0;
+    /* height: auto; */
+    font-size: 25px;
+    flex-shrink: 0;
   }
 `;
 const LinkBtn = styled.button`
@@ -102,6 +120,13 @@ const LinkBtn = styled.button`
     position: relative;
     top:3px;
     left:10px;
+  }
+  @media screen and (max-width:1200px){
+    font-size: 20px;
+    height: 50px;
+    .arrow{
+      top:5px;
+    }
   }
 `;
 const Loader = styled.div`

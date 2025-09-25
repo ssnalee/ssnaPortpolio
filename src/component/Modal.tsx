@@ -3,6 +3,11 @@ import { motion } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
 import { PiArrowBendDownLeftFill } from "react-icons/pi";
 import { IListProps } from "../common/projectList";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { useEffect, useState } from "react";
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -30,6 +35,9 @@ const ModalBox = styled(motion.div)`
   &::-webkit-scrollbar {
     display: none;
   }
+  @media screen and (max-width:1000px){
+    width: 95%;
+  } 
 `;
 
 const ModalCover = styled.div`
@@ -45,10 +53,15 @@ const ModalCover = styled.div`
     cursor: pointer;
     color: #797979;
     transition: all 0.3s ease-in-out;
-
     &:hover {
       color: #181818;
       scale: 1.3;
+    }
+  }
+  @media screen and (max-width:1000px){
+    width: 95%;
+    .closeModal{
+      top: 10px;
     }
   }
 `;
@@ -58,20 +71,32 @@ const ModalCtnt = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width:1000px){
+    padding: 15px;
+    padding-top: 40px;
+  }
 `;
 
 const ModalLeft = styled.div`
   display: flex;
   justify-content: center;
-  /* flex-wrap: wrap; */
   gap: 10px;
   margin-bottom: 40px;
 
   img {
-    /* max-width: 300px; */
-    /* height: auto; */
     height: 300px;
     border-radius: 10px;
+  }
+  .swiper-pagination-bullet {
+    width: 10px;  
+    height: 10px;    
+    background: #999999; 
+    opacity: 1;  
+    margin: 0 6px;   
+  }
+  .swiper-pagination-bullet-active {
+    background: #00adf1; 
+   transform: scale(1.3); 
   }
 `;
 
@@ -150,7 +175,13 @@ function Modal({ list, closePopup }: IProps) {
   const IMG_URL = process.env.PUBLIC_URL + "/img/site/";
   const SKILL_IMG_URL = process.env.PUBLIC_URL + "/img/skills/";
 
-
+  const [isMobileView, setIsMobileView] = useState(false);
+  useEffect(() => {
+    const handleResize = () => setIsMobileView(window.innerWidth <= 1000);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <Overlay
       onClick={closePopup}
@@ -175,9 +206,32 @@ function Modal({ list, closePopup }: IProps) {
         <ModalCtnt>
           {/* 이미지 영역 */}
           <ModalLeft>
-            {list.images?.map((img, idx) => (
-              <img key={idx} src={IMG_URL + img} alt={`${list.name}-${idx}`} />
-            ))}
+            {isMobileView ? (
+              <div style={{ width: "100%", maxWidth: "400px", margin: "0 auto" }}>
+                <Swiper
+                  spaceBetween={10}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  modules={[Pagination]}
+                  style={{ paddingBottom: "30px" }}
+                >
+                  {list.images?.map((img, idx) => (
+                    <SwiperSlide key={idx}>
+                      <img
+                        src={IMG_URL + img}
+                        alt={`${list.name}-${idx}`}
+                        style={{ height: "280px", display: "block", margin : "0 auto"}}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+
+            ) : (
+              list.images?.map((img, idx) => (
+                <img key={idx} src={IMG_URL + img} alt={`${list.name}-${idx}`} />
+              ))
+            )}
           </ModalLeft>
 
           {/* 텍스트 영역 */}

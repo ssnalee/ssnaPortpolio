@@ -19,6 +19,12 @@ const Nav = styled(motion.nav)`
   z-index : 99;
   background-color: transparent;
   font-size: 1em;
+  @media screen and (max-width:768px){
+    padding: 10px;
+    justify-content: center;
+    height: 80px;
+    backdrop-filter: blur(25px);
+  }
 `;
   
 const NavLists = styled.ul`
@@ -32,6 +38,12 @@ const NavList = styled.li`
   position: relative;
   font-family: "Anta", sans-serif;
   font-weight: 400;
+  @media screen and (max-width:768px){
+    &:last-child{
+      display: none;
+    }
+    margin-right: 5px;
+  }
 `;
 const DarkBtn = styled.button`
   width: 40px;

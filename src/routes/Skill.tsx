@@ -12,6 +12,12 @@ const SkillWrap = styled.div`
   >div{
     width: 45%;
   }
+  @media screen and (max-width:1200px){
+    flex-direction: column;
+    >div{
+      width: 100%;
+    }
+  }
 `;
 const SkillBoxs = styled.div``;
 const SkillBox = styled.div`
@@ -25,7 +31,7 @@ const SkillBox = styled.div`
 const SkillDiv = styled(motion.div)` 
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
   gap: 30px;
@@ -40,6 +46,14 @@ const SkillDiv = styled(motion.div)`
     color:#fff;
     padding: 5px 10px;
     border-radius: 30px;
+  }
+  @media screen and (max-width:768px){
+    justify-content: flex-start;
+    gap: 0;
+    >div{
+      width: 50%;
+      margin-bottom: 20px;
+    }
   }
 `;
 const Stitle = styled.h3`

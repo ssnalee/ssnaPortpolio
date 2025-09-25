@@ -27,25 +27,15 @@ const AboutWrap = styled.div`
 const ContL = styled.div`
  width: 40%;
  position: relative;
+ @media screen and (max-width:1200px){
+  display: none;
+  }
   img{
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 30px;
   }
-  /* h3{
-    position:absolute;
-    top: -50px;
-    left: -50px;
-    font-size: 5rem;
-    font-family: "Orbit", sans-serif;
-    font-weight: 600;
-    text-shadow: 
-    -2px -2px 0 white,
-     2px -2px 0 white,
-    -2px  2px 0 white,
-     2px  2px 0 white;
-  } */
   `;
 
 const ContR = styled(motion.div)`
@@ -54,6 +44,10 @@ const ContR = styled(motion.div)`
   padding: 40px;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width:1200px){
+  width: 100%;
+  padding: 0;
+  }
   `;
 const Datas = styled.dl`
   display: flex;
@@ -62,7 +56,6 @@ const Datas = styled.dl`
   margin-bottom:50px;
   position: relative;
   width: max-content;
-  
   font-family: "Orbit", sans-serif;
   &::before{
     content:"";
@@ -81,12 +74,6 @@ const Datas = styled.dl`
   dt:before{
     content:"";
     position: absolute;
-    /* top:0;
-    left:-10px;
-    background-color: #b6b6b6;
-    height: 100%;
-    width: 5px; */
-
   }
   dd{
     position: relative;
@@ -97,6 +84,21 @@ const Datas = styled.dl`
     right: -100px;
     bottom:-35px;
     font-size: 15px;
+  }
+  @media screen and (max-width:1200px){
+    font-size: 25px;
+    margin-bottom:30px;
+  }
+  @media screen and (max-width:768px){
+    font-size: 15px;
+    margin-bottom:20px;
+    dd{
+      font-size: 12px;
+    }
+    dd.click_btn{
+      right: -10px;
+      font-size: 12px;
+    }
   }
 `;
 
@@ -115,7 +117,12 @@ const QaWrap = styled.div`
      2px -2px 0 white,
     -2px  2px 0 white,
      2px  2px 0 white;
-    /* font-weight: 600; */
+  }
+  @media screen and (max-width:1200px){
+    h3{
+      font-size: 3rem;
+      text-align: center;
+    }
   }
 `;
 const QaSection = styled(motion.div)`
@@ -128,13 +135,20 @@ const QaSection = styled(motion.div)`
     border-bottom: 1px solid #fff;
   }
   h5{
-    /* font-family: "Orbit", sans-serif; */
     font-size: 2.5rem;
     margin: 30px 0 15px;
   }
   p{
       font-family: "Orbit", sans-serif;
     font-size: 1rem;
+  }
+  @media screen and (max-width:1200px){
+    h5{
+      font-size: 1.5rem;
+    }
+    p{
+      font-size: 0.9rem;
+    }
   }
 `;
 
