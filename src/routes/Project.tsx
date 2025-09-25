@@ -7,6 +7,7 @@ import 'swiper/css/navigation';
 import Modal from "../component/Modal";
 import { projectList } from "../common/projectList";
 import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
+import { AnimatePresence, motion } from "framer-motion";
 
 const fadeIn = keyframes`
   0% { opacity: 0; }
@@ -49,7 +50,7 @@ const ProjectWrap = styled.div`
   }
 `;
 
-const ProList = styled.div`
+const ProList = styled(motion.div)`
   margin: 15px;
   position: relative;
   cursor: pointer;
@@ -119,7 +120,10 @@ function Project() {
       >
         {projectList.map((list, idx) => (
           <SwiperSlide key={list.id}>
-            <ProList onClick={() => openPopup(idx)}>
+            <ProList
+              onClick={() => openPopup(idx)}
+              layoutId={`project-${list.id}`}
+            >
               <img src={`${process.env.PUBLIC_URL}/img/site/${list.img}`} />
               <ProListTitle>{list.name}</ProListTitle>
               <ProListTitle>({list.year})</ProListTitle>
@@ -127,10 +131,11 @@ function Project() {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {isClicked && (
-        <Modal list={projectList[countIndex]} closePopup={closePopup} />
-      )}
+      <AnimatePresence>
+        {isClicked && (
+          <Modal list={projectList[countIndex]} closePopup={closePopup} />
+        )}
+      </AnimatePresence>
     </ProjectWrap>
   );
 }

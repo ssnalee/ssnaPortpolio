@@ -150,13 +150,12 @@ function Modal({ list, closePopup }: IProps) {
   const IMG_URL = process.env.PUBLIC_URL + "/img/site/";
   const SKILL_IMG_URL = process.env.PUBLIC_URL + "/img/skills/";
 
-  const onOverlayClicked = () => {
-    closePopup();
-  };
 
   return (
     <Overlay
-      onClick={onOverlayClicked}
+      onClick={closePopup}
+      as={motion.div}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
@@ -164,11 +163,11 @@ function Modal({ list, closePopup }: IProps) {
         onClick={(e) => e.stopPropagation()}
         initial={{ scale: 1 }}
         exit={{ scale: 0 }}
-        layoutId={list.id}
+        layoutId={`project-${list.id}`}
       >
         <ModalCover>
           <AiOutlineClose
-            onClick={onOverlayClicked}
+            onClick={closePopup}
             className="closeModal"
             size={"30px"}
           />
