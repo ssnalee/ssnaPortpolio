@@ -44,7 +44,7 @@ export const projectList: Array<IListProps> = [
         adress: "http://ssna.kr/fad/index.html",
         img: "fad.PNG",
         year: "2021",
-        images : ['fad_pc.png','fad_ta.png','fad_mo.png'],
+        images: ['fad_pc.png', 'fad_ta.png', 'fad_mo.png'],
     }, {
         id: "project02",
         name: "반응형 화장품 웹사이트 리뉴얼",
@@ -70,7 +70,7 @@ export const projectList: Array<IListProps> = [
         adress: "http://ssna.kr/acmer/index.html",
         img: "ac.PNG",
         year: "2022",
-        images : ['ac_pc.png','ac_ta.png','ac_mo.png'],
+        images: ['ac_pc.png', 'ac_ta.png', 'ac_mo.png'],
     }, {
         id: "project03",
         name: "날씨 & ToDo 싱글 페이지",
@@ -99,7 +99,7 @@ export const projectList: Array<IListProps> = [
         adress: "http://ssna.kr/moment/index.html",
         img: "mo.PNG",
         year: "2022",
-        images : ['mo_pc.png'],
+        images: ['mo_pc.png'],
     }, {
         id: "project04",
         name: "김프로굿샷 APP",
@@ -132,7 +132,7 @@ export const projectList: Array<IListProps> = [
         adress: "https://www.kimgoodshot.com/index.ks",
         img: "kimhome.jpg",
         year: "2023",
-        images : ['kim.png','kim2.png','kim3.png','kim4.png'],
+        images: ['kim.png', 'kim2.png', 'kim3.png', 'kim4.png'],
     }, {
         id: "project05",
         name: "넷플릭스 클론페이지",
@@ -159,10 +159,38 @@ export const projectList: Array<IListProps> = [
         adress: "https://react-practice-netflix.vercel.app/",
         img: "ne.PNG",
         year: "2023",
-        images : ['ne_pc.png','ne_pc2.png'],
+        images: ['ne_pc.png', 'ne_pc2.png'],
     },
     {
         id: "project06",
+        name: "포트폴리오 페이지",
+        overview: `
+        📌 개요 <br />
+        개인 포트폴리오 페이지가 필요하다고 생각하여 제작한 프로젝트입니다. <br />
+        이전에 넷플릭스 클론 페이지를 만들면서 경험했던 React와 TypeScript를 이번 프로젝트에서 스스로 체화하고,  <br /> 
+        2025년에 다시 수정하며 기능과 디자인을 보완한 페이지입니다. <br />
+        🛠 구현 과정 <br />
+        React와 TypeScript를 활용하여 컴포넌트 구조 설계 및 구현 <br />
+        포트폴리오 페이지에 필요한 UI 요소 구성 및 스타일링 <br />
+        프로젝트 목록, 모달 팝업 등 인터랙션 구현 <br />
+        🚀 성장 포인트 <br />
+        React와 TypeScript 기반 프로젝트 설계 및 구현 경험 <br />
+        컴포넌트 단위 설계, 상태 관리, UI/UX 설계 능력 향상 <br />
+        이전 프로젝트 경험을 바탕으로 스스로 학습하고 구조화하는 능력 강화
+        `,
+        skills: [
+            { key: "ts", label: "TypeScript" },
+            { key: "react", label: "React" },
+            { key: "styled-component", label: "Styled-Component" },
+        ],
+        people: 1,
+        adress: "https://ssna-portpolio.vercel.app/",
+        img: "portpolio.jpg",
+        year: "2024",
+        images: ['portpolio_2.png', 'portpolio_1.png'],
+    },
+    {
+        id: "project07",
         name: "호텔사이트 리뉴얼",
         // state: false,
         overview: `
@@ -189,10 +217,10 @@ export const projectList: Array<IListProps> = [
         adress: "https://merriot.vercel.app/",
         img: "re.PNG",
         year: "2024",
-        images : ['re_pc.png','re_ta.png','re_mo.png'],
+        images: ['re_pc.png', 're_ta.png', 're_mo.png'],
     },
     {
-        id: "project07",
+        id: "project08",
         name: "애견용품 쇼핑몰",
         // state: false,
         overview: `
@@ -227,10 +255,10 @@ export const projectList: Array<IListProps> = [
         adress: "https://typefront.vercel.app/",
         img: "cattus.jpg",
         year: "2025",
-        images : ['cattus_1.png'],
+        images: ['cattus_1.png'],
     },
     {
-        id: "project08",
+        id: "project09",
         name: "오버워치 커뮤니티",
         // state: false,
         overview: `
@@ -245,7 +273,7 @@ export const projectList: Array<IListProps> = [
         • 비밀번호 등 민감 정보 해시 처리<br />
         🛠 구현 과정:<br />
         • DB 설계 및 SQL 쿼리 작성 <br />
-        • React + JavaScript로 프론트엔드 개발, 라이브러리 활용에 어려움 없음<br />
+        • React + JavaScript로 프론트엔드 개발, 라이브러리 활용<br />
         • 처음 해보는 풀스택 프로젝트로 백엔드와 프론트엔드 전체 흐름 경험<br />
         ⚠️ 이슈: DB 쿼리 작성이 처음이라 복잡한 SELECT문에서 어려움<br />
         ✅ 해결<br />
@@ -269,6 +297,6 @@ export const projectList: Array<IListProps> = [
         adress2: "https://onwar-backend.onrender.com/docs/",
         img: "onwar.jpg",
         year: "2025",
-        images : ['onwar_2.png','onwar_3.png'],
+        images: ['onwar_2.png', 'onwar_3.png'],
     }
 ];
