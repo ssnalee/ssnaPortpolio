@@ -14,6 +14,7 @@ export interface IListProps {
     adress2?: string;
     img: string;
     year: string;
+    images: string[];
 }
 export const projectList: Array<IListProps> = [
     {
@@ -43,6 +44,7 @@ export const projectList: Array<IListProps> = [
         adress: "http://ssna.kr/fad/index.html",
         img: "fad.PNG",
         year: "2021",
+        images : ['fad_pc.png','fad_ta.png','fad_mo.png'],
     }, {
         id: "project02",
         name: "반응형 화장품 웹사이트 리뉴얼",
@@ -68,6 +70,7 @@ export const projectList: Array<IListProps> = [
         adress: "http://ssna.kr/acmer/index.html",
         img: "ac.PNG",
         year: "2022",
+        images : ['ac_pc.png','ac_ta.png','ac_mo.png'],
     }, {
         id: "project03",
         name: "날씨 & ToDo 싱글 페이지",
@@ -96,6 +99,7 @@ export const projectList: Array<IListProps> = [
         adress: "http://ssna.kr/moment/index.html",
         img: "mo.PNG",
         year: "2022",
+        images : ['mo_pc.png'],
     }, {
         id: "project04",
         name: "김프로굿샷 APP",
@@ -126,8 +130,9 @@ export const projectList: Array<IListProps> = [
         ],
         people: 4,
         adress: "https://www.kimgoodshot.com/index.ks",
-        img: "kim.jpg",
+        img: "kimhome.jpg",
         year: "2023",
+        images : ['kim.png','kim2.png','kim3.png','kim4.png'],
     }, {
         id: "project05",
         name: "넷플릭스 클론페이지",
@@ -154,6 +159,7 @@ export const projectList: Array<IListProps> = [
         adress: "https://react-practice-netflix.vercel.app/",
         img: "ne.PNG",
         year: "2023",
+        images : ['ne_pc.png','ne_pc2.png'],
     },
     {
         id: "project06",
@@ -183,6 +189,7 @@ export const projectList: Array<IListProps> = [
         adress: "https://merriot.vercel.app/",
         img: "re.PNG",
         year: "2024",
+        images : ['re_pc.png','re_ta.png','re_mo.png'],
     },
     {
         id: "project07",
@@ -213,15 +220,14 @@ export const projectList: Array<IListProps> = [
         `,
         skills: [
             { key: "ts", label: "TypeScript" },
-            { key: "react", label: "React" },
-            { key: "styled-component", label: "Styled-Component" },
-            { key: "express", label: "Express" },
-            { key: "mongodb", label: "MongoDB" },
+            { key: "vue", label: "Vue" },
+            { key: "vuex", label: "Vuex" },
         ],
         people: 2,
         adress: "https://typefront.vercel.app/",
-        img: "re.PNG",
+        img: "cattus.jpg",
         year: "2025",
+        images : ['cattus_1.png'],
     },
     {
         id: "project08",
@@ -252,16 +258,17 @@ export const projectList: Array<IListProps> = [
         • 보안 고려 (비밀번호 해시 처리) 및 실무 프로젝트 경험<br />
         `,
         skills: [
-            { key: "ts", label: "TypeScript" },
             { key: "react", label: "React" },
+            { key: "redux", label: "Redux" },
             { key: "styled-component", label: "Styled-Component" },
             { key: "express", label: "Express" },
-            { key: "mongodb", label: "MongoDB" },
+            { key: "postgredb", label: "postgreDB" },
         ],
         people: 1,
         adress: "https://onwar-frontend.vercel.app",
         adress2: "https://onwar-backend.onrender.com/docs/",
-        img: "re.PNG",
+        img: "onwar.jpg",
         year: "2025",
+        images : ['onwar_2.png','onwar_3.png'],
     }
 ];

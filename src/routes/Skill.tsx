@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 const SkillWrap = styled.div`
@@ -21,7 +22,7 @@ const SkillBox = styled.div`
   box-shadow: ${(props) => `0px 8px 6px -6px ` + props.theme.shadow};
   overflow: hidden;
 `;
-const SkillDiv = styled.div` 
+const SkillDiv = styled(motion.div)` 
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -50,12 +51,12 @@ const Stitle = styled.h3`
   width: fit-content;
   margin-bottom: 50px;
 `;
-const Simg = styled.img`
+const Simg = styled(motion.img)`
   height: 80px;
-  &:hover{
+  /* &:hover{
     scale:1.2;
     transition: all 0.5s;
-  }
+  } */
 `;
 
 function Skill() {
@@ -159,15 +160,41 @@ function Skill() {
     ]
   }
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15, 
+        delayChildren: 0.2, 
+      },
+    },
+  };
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    show: { opacity: 1, y: 0 }
+  };
   const SkillItems = ({ items }: { items: { key: string; label: string }[] }) => (
-    <>
+    <SkillDiv
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
       {items.map(item => (
-        <div key={item.key}>
-          <Simg src={`${SKILL_IMG_URL}/${item.key}.png`} />
+        <motion.div
+          key={item.key}
+          variants={itemVariants}
+        >
+          <Simg
+            src={`${SKILL_IMG_URL}/${item.key}.png`}
+            whileHover={{ y: -5 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          />
           <p>{item.label}</p>
-        </div>
+        </motion.div>
       ))}
-    </>
+    </SkillDiv>
   );
 
   return (
@@ -175,37 +202,23 @@ function Skill() {
       <SkillBoxs>
         <SkillBox>
           <Stitle>프론트엔드 & 스타일링</Stitle>
-          <SkillDiv>
-            <SkillItems items={skills.basics} />
-          </SkillDiv>
-          <SkillDiv>
-            <SkillItems items={skills.ui} />
-          </SkillDiv>
+          <SkillItems items={skills.basics} />
+          <SkillItems items={skills.ui} />
         </SkillBox>
         <SkillBox>
           <Stitle>백엔드 & DB</Stitle>
-          <SkillDiv>
-            <SkillItems items={skills.backend} />
-          </SkillDiv>
+          <SkillItems items={skills.backend} />
         </SkillBox>
       </SkillBoxs>
-
       <SkillBoxs>
         <SkillBox>
           <Stitle>프레임워크 & 상태관리</Stitle>
-          <SkillDiv>
-            <SkillItems items={skills.react_framework} />
-          </SkillDiv>
-          <SkillDiv>
-            <SkillItems items={skills.vue_framework} />
-          </SkillDiv>
+          <SkillItems items={skills.react_framework} />
+          <SkillItems items={skills.vue_framework} />
         </SkillBox>
-
         <SkillBox>
           <Stitle>협업 도구</Stitle>
-          <SkillDiv>
-            <SkillItems items={skills.tool} />
-          </SkillDiv>
+          <SkillItems items={skills.tool} />
         </SkillBox>
       </SkillBoxs>
     </SkillWrap>

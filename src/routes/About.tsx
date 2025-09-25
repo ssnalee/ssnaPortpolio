@@ -48,7 +48,7 @@ const ContL = styled.div`
   } */
   `;
 
-const ContR = styled.div`
+const ContR = styled(motion.div)`
   width: 60%;
   margin: 0 auto;
   padding: 40px;
@@ -149,7 +149,10 @@ function About() {
           {/* <h3>ABOUT</h3> */}
           <img src={process.env.PUBLIC_URL + '/img/me.jpg'} />
         </ContL>
-        <ContR>
+        <ContR 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}>
           <Datas>
             <dt>이름</dt>
             <dd>이승아</dd>
