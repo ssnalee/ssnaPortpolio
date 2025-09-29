@@ -114,7 +114,7 @@ const ProjectTitle = styled.h2`
 
 const NotFinished = styled.span`
   display: inline-block;
-  background-color: ${(props) => props.theme.red};
+  background-color: "#E51013";
   padding: 5px;
   color: #fff;
   border-radius: 30px;

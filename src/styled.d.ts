@@ -2,7 +2,6 @@ import 'styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme{
-    red: string;
     black: {
       veryDark: string;
       darker: string;
@@ -12,9 +11,11 @@ declare module 'styled-components' {
       darker: string;
       lighter: string;
     };
+    mapColor: string;
     bgColor : string;
     gradient: string;
     shadow : string;
     btnColor : string;
+    textColor : string;
   }
 }

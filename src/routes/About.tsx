@@ -104,7 +104,7 @@ const Datas = styled.dl`
 `;
 
 const QaWrap = styled.div`
-  background-color: #afc4ce;
+  background-color: ${(props)=>props.theme.mapColor};
   margin-top: 50px;
   padding: 50px 0;
   h3{
@@ -132,6 +132,7 @@ const QaSection = styled(motion.div)`
   margin: 0 auto;
   font-family: "Nanum Pen Script", cursive;
   padding-bottom: 30px;
+  color: ${(props)=>props.theme.textColor};
   &:not(&:last-of-type){
     border-bottom: 1px solid #fff;
   }
