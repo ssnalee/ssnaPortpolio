@@ -26,7 +26,8 @@ const ModalBox = styled(motion.div)`
   right: 0;
   margin: 0 auto;
   width: 900px;
-  height: 600px;
+  height: 100%;
+  max-height: 600px;
   overflow: auto;
   border-radius: 20px;
   background-color: ${(props)=>props.theme.white.lighter};
@@ -37,6 +38,10 @@ const ModalBox = styled(motion.div)`
   }
   @media screen and (max-width:1000px){
     width: 95%;
+  } 
+  @media screen and (max-height:770px){
+    top: 0;
+    max-height: 100%;
   } 
 `;
 
