@@ -75,6 +75,7 @@ const ProList = styled(motion.div)`
 `;
 
 const ProListTitle = styled.h4`
+  color: ${(props)=>props.theme.textColor};
   font-family: "Nanum Pen Script", cursive;
   font-weight: 400;
   font-size: 32px;

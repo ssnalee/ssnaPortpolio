@@ -29,7 +29,7 @@ const ModalBox = styled(motion.div)`
   height: 600px;
   overflow: auto;
   border-radius: 20px;
-  background-color: #fff;
+  background-color: ${(props)=>props.theme.white.lighter};
   color: #000;
   z-index: 1000;
   &::-webkit-scrollbar {

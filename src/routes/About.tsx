@@ -57,6 +57,7 @@ const Datas = styled.dl`
   position: relative;
   width: max-content;
   font-family: "Orbit", sans-serif;
+  color: ${(props)=>props.theme.textColor};
   &::before{
     content:"";
     position: absolute;

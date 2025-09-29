@@ -64,6 +64,7 @@ const ContR = styled.div`
   letter-spacing: 0.5px;
   line-height: 2em;
   white-space: pre-wrap;
+  color: ${(props)=>props.theme.textColor};
   @media screen and (max-width:1200px){
     width: 100%;
     padding:  20px;
@@ -177,7 +178,7 @@ const Intro = ()=>{
         <ContL>
           <img src={process.env.PUBLIC_URL+'/img/me.jpg'}/>
         </ContL> 
-        <ContR>
+        <ContR >
         {/* <Typewriter text= "안녕하세요." speed={100}/>
         <Typewriter text= "프론트엔드 개발자 이승아입니다." speed={200}/> */}
             <Typewriter options={{
@@ -185,8 +186,8 @@ const Intro = ()=>{
                 autoStart: true,
                 loop : false,
                 deleteSpeed : 20000000,
-              
               }}
+              
             />
             <CircleBox>
             <Circle 

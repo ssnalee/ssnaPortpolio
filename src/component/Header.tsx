@@ -38,6 +38,7 @@ const NavList = styled.li`
   position: relative;
   font-family: "Anta", sans-serif;
   font-weight: 400;
+  color: ${(props)=>props.theme.textColor};
   @media screen and (max-width:768px){
     &:last-child{
       display: none;

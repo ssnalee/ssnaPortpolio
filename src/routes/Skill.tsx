@@ -21,7 +21,7 @@ const SkillWrap = styled.div`
 `;
 const SkillBoxs = styled.div``;
 const SkillBox = styled.div`
-  background-color: #fff;
+  background-color:  ${(props)=>props.theme.white.lighter};
   border-radius: 20px;
   padding:20px;
   margin-bottom: 20px;
